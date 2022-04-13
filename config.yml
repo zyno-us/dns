@@ -1,0 +1,27 @@
+# See https://0xerr0r.github.io/blocky/configuration/ for more configuration info
+
+upstream:
+  default:
+    # On the official instance, we use OpenDNS, which is what we highly recommend
+    # Feel free to change these to whatever DNS servers you'd like
+    - https://dns.opendns.com/dns-query # OpenDNS DoH
+    - https://dns.zyno.us/dns-query # ZynoDNS DoH
+
+caching:
+  minTime: 5m
+  maxTime: 0
+  maxItemsCount: 0
+  prefetching: true
+  prefetchExpires: 2h
+  prefetchThreshold: 5
+  prefetchMaxItemsCount: 0
+
+port: 53
+tlsPort: 853 # DoT, cert required
+httpsPort: 443 # DoH, cert required
+certFile: /app/fullchain.pem 
+keyFile: /app/privkey.pem
+disableIPv6: false
+logTimestamp: true
+logPrivacy: true
+upstreamTimeout: 2s
